@@ -34,3 +34,20 @@ export const routes: Routes = [
 ## Rendering Routes
 
 We need to place a markup and use special directive `<router-outlet />` to render component
+
+<br>
+
+**Use routerLink in anchor tag instead of href** `<a routerLink="/tasks">`
+
+<hr>
+
+2 notations:
+
+`<a [routerLink]="'/users/' + user().id" routerLinkActive="selected">`
+
+or
+
+`<a [routerLink]="['/users', user().id]" routerLinkActive="selected">`
+
+<hr>
+
