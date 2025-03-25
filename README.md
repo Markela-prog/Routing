@@ -35,6 +35,8 @@ export const routes: Routes = [
 
 We need to place a markup and use special directive `<router-outlet />` to render component
 
+Child routes need a separate router outlet in the parent component
+
 <br>
 
 **Use routerLink in anchor tag instead of href** `<a routerLink="/tasks">`
@@ -51,3 +53,18 @@ or
 
 <hr>
 
+To access param values from child routes, we have to use withRouterConfig in main.ts with paramsInheritanceStrategy: 'always' function executed
+
+```
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(
+      routes,
+      withComponentInputBinding(),
+      withRouterConfig({
+        paramsInheritanceStrategy: 'always',
+      })
+    ),
+  ],
+}).catch((err) => console.error(err));
+```
